@@ -2,17 +2,53 @@
 
 ![api?](https://img.shields.io/badge/17-0?label=willweuseanAPI&style=for-the-badge&labelColor=white&color=black)
 
-## Description
+## Overview
 
-Post COVID made us understand 2 core concepts. 
-1 - Mental Health is an inclide statically 1 in 2 people have mental health issues and its a taboo thing to ask 
-2- technology is a way to communicate globally and locally from the comfort of your home
+This project is a MERN stack website aimed at providing information about the latest mental health seminars and workshops. It serves as a platform for users to discover and attend events related to mental health awareness and well-being.
 
-we are here to upskill indivuals on social behaviour concepts 
+## Feature
+Event Listings: Browse a curated list of upcoming mental health seminars and workshops.
+Event Details: View detailed information about each event, including date, time, location, speakers, and topics covered.
+Registration: Register for events directly through the website.
+User Authentication: Secure authentication system for user registration and login.
+Admin Dashboard: Admin panel for managing events, users, and content.
 
-The team that made the original app is credited below and its workflow was coordinated on [GitHub Projects](https://github.com/BrxwnSugxr/MindOverMatter).
+## Technologies Used
+Frontend: React.js, Redux, HTML, CSS
+Backend: Node.js, Express.js, MongoDB
+Authentication: JSON Web Tokens (JWT)
+Database: MongoDB Atlas
+Deployment: Heroku (backend)
 
-While making the app, we made fetch calls to third-party APIs like `?`, learned about a framework called `AntD`
+## Installation
+ 1. Clone the repository:
+
+ 2. Navigate to the project directory:
+
+ 3. Install dependencies:
+
+ 4. Set up environment variables:
+Create a .env file in the root directory.
+Add the following environment variables:
+
+ 5. Start the development server:
+
+
+## Usage
+Browse upcoming events on the homepage.
+Click on an event to view its details and register.
+Log in to access additional features (admin dashboard for admins).
+Admins can manage events, users, and content through the admin panel.
+
+
+## Contributing
+
+## License
+This project is licensed under the MIT License - see the (./LICENSE) file for details.
+
+## Contact
+
+
 
 
  Table of Contents
