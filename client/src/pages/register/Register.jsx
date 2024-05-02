@@ -45,6 +45,11 @@ const Register = () => {
     <div className="register">
       <h2 className="title">Register Page</h2>
       {sucessMsg && <p className="success-msg">{sucessMsg}</p>}
+      {error && (
+        <p className="error-msg">
+          Something went wrong, please try again later.
+        </p>
+      )}
       <Form className="register-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
