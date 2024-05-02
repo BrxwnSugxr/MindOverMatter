@@ -3,9 +3,20 @@
   line-height: 1.5;
   font-weight: 400;
 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.success-msg,
+.error-msg {
+  color: #35c035;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.error-msg {
+  color: #ff0000;
 }
