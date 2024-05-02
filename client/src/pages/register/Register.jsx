@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 import { Button, Form } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
 
 const Register = () => {
   const [state, setState] = useState({
@@ -8,6 +9,8 @@ const Register = () => {
     email: '',
     password: '',
   });
+
+  const [registerUser, { error }] = useMutation(REGISTER_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,9 +20,16 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(state);
+
+    const { data } = await registerUser({
+      data: {
+        ...state,
+      },
+    });
+    console.log('data', data);
   };
   return (
     <div className="register">
