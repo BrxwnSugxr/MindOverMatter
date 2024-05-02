@@ -11,6 +11,7 @@ const Register = () => {
   });
 
   const [registerUser, { error }] = useMutation(REGISTER_USER);
+  const [sucessMsg, setSuccessMsg] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,10 +31,20 @@ const Register = () => {
       },
     });
     console.log('data', data);
+    setState({
+      username: '',
+      email: '',
+      password: '',
+    });
+    setSuccessMsg('Registration is succesful');
+    setTimeout(() => {
+      setSuccessMsg('');
+    }, 2000);
   };
   return (
     <div className="register">
       <h2 className="title">Register Page</h2>
+      {sucessMsg && <p className="success-msg">{sucessMsg}</p>}
       <Form className="register-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
