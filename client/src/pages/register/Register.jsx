@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 const Register = () => {
   return (
