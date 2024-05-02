@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 const Register = () => {
   return (
     <div className="register">
-      <h2>Register Page</h2>
+      <h2 className="title">Register Page</h2>
       <Form className="register-form">
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
