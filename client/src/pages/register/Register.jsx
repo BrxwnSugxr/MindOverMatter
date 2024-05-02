@@ -20,11 +20,17 @@ const Register = () => {
             type="text"
             name="username"
             placeholder="Enter Username"
+            onChange={handleChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter Email" />
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
@@ -32,6 +38,7 @@ const Register = () => {
             type="password"
             name="password"
             placeholder="Enter password"
+            onChange={handleChange}
           />
         </Form.Group>
         <Button type="submit">Register</Button>
