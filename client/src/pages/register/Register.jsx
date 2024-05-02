@@ -9,11 +9,22 @@ const Register = () => {
     password: '',
   });
 
-  const handleChange = (event) => {};
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(state);
+  };
   return (
     <div className="register">
       <h2 className="title">Register Page</h2>
-      <Form className="register-form">
+      <Form className="register-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
