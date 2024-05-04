@@ -1,7 +1,8 @@
 import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 
-const ProtectedPage = () => {
-  return <div>ProtectedPage</div>;
+const ProtectedPage = ({ isLoggedIn }) => {
+  return <>{isLoggedIn ? <Outlet /> : <Navigate to="/" />}</>;
 };
 
 export default ProtectedPage;
