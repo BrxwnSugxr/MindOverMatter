@@ -5,10 +5,13 @@ import Register from './pages/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem('userToken' ? true : false)
+  );
   return (
     <BrowserRouter>
       <div className="container">
+        <Header isLoggedIn={isLoggedIn} />
         <Routes>
           <Route
             path="/"
