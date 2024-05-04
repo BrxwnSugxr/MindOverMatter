@@ -34,6 +34,7 @@ const Login = () => {
         },
       });
       console.log('data', data);
+      locaclStorage.setItem('userToken', JSON.stringify(data.login.token));
       setState({
         email: '',
         password: '',
