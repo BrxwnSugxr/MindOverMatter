@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './pages/login/login';
 import Register from './pages/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
+import ProtectedPage from './componenets/protected-page/ProtectedPage';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,9 +21,23 @@ const App = () => {
               )
             }
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/login"
+            element={
+              !isLoggedIn ? (
+                <Login setIsLoggedIn={setIsLoggedIn} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/register"
+            element={!isLoggedIn ? <Register /> : <Navigate to="/" />}
+          />
+          <Route element={<ProtectedPage isLoggedIn={isLoggedIn} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
