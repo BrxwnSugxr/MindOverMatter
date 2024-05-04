@@ -20,7 +20,7 @@ const Dashboard = () => {
     const { name, value } = event.target;
     setState({
       ...state,
-      [name]: value,
+      [name]: name === 'is_virtual' ? event.target.checked : value,
     });
   };
 
@@ -78,7 +78,27 @@ const Dashboard = () => {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button type="submit">Register</Button>
+
+        <Form.Group className="mb-3" controlId="descnumber_of_people">
+          <Form.Label>number_of_people</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            description="number_of_people"
+            placeholder="number_of_people "
+            value={state.number_of_people}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="number_of_people">
+          <Form.Check
+            name="is_virtual"
+            type="checkbox"
+            label="Is Virtual"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button type="submit">Create event</Button>
       </Form>
       <div>
         Don't have an account <Link to="/register">register here</Link>
