@@ -1,0 +1,11 @@
+.link-items {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+  margin: 1rem;
+}
+
+.link-item a {
+  font-size: 20px;
+}
