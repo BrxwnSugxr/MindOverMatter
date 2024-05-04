@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER, REGISTER_USER } from '../../utils/mutations';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (setIsLoggedIn) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: '',
@@ -34,6 +34,8 @@ const Login = () => {
         },
       });
       console.log('data', data);
+      locaclStorage.setItem('userToken', JSON.stringify(data.login.token));
+      setIsLoggedIn(true);
       setState({
         email: '',
         password: '',
