@@ -26,21 +26,25 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(state);
-    const { data } = await registerUser({
-      data: {
-        ...state,
-      },
-    });
-    console.log('data', data);
-    setState({
-      username: '',
-      email: '',
-      password: '',
-    });
-    setSuccessMsg('Registration is successful');
-    setTimeout(() => {
-      setSuccessMsg('');
-    }, 2000);
+    const {username, email, password} = state;
+    if(username.trim() !== '' && email.trim() !== '' && password.trim() !== ''){
+
+      const { data } = await registerUser({
+        data: {
+          ...state,
+        },
+      });
+      console.log('data', data);
+      setState({
+        username: '',
+        email: '',
+        password: '',
+      });
+      setSuccessMsg('Registration is successful');
+      setTimeout(() => {
+        setSuccessMsg('');
+      }, 2000);
+    }
   };
 
   return (
