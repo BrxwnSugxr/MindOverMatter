@@ -44,4 +44,18 @@ mutation login($email: String!, $password: !String) {
         token
     }
 }
+`;
+
+export const LOGIN_ADMIN = gql`
+mutation loginAdmin($email: String!, $password: String!) {
+    loginAdmin(email: $email, password: $password) {
+        admin{
+            _id
+            username
+            email
+            type
+        }
+        token
+    }
+}
 `
