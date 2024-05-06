@@ -31,3 +31,17 @@ export const REGISTER_USER_FOR_EVENT = gql`
     }
   }
 `;
+
+export const LOGIN_USER = gql`
+mutation login($email: String!, $password: !String) {
+    login(email: $email, password: $password) {
+        user{
+            _id
+            username
+            email
+            type
+        }
+        token
+    }
+}
+`
