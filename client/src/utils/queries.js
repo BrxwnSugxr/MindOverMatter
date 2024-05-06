@@ -23,3 +23,19 @@ export const GET_EVENTS = gql`
     }
 }
 `;
+
+export const GET_PUBLIC_EVENTS = gql`
+{
+    getPublicEvents {
+        query getEvent($eventId: String!) {
+            getEvent(eventId: $eventId) {
+                _id
+                title
+                description
+                number_of_people
+                is_virtual
+            }
+        }
+    }
+}
+`
