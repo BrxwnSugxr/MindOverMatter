@@ -145,6 +145,40 @@ const resolvers = {
                 throw new Error('Fail to login user')
             }
         }, 
+        loginAdmin: async (parent, args, context) => {
+            try{
+                const admin = await Admin.findOne({
+                    email: args.email,
+                })
+                if(!admin) {
+                    throw new Error('Admin with provided email does not exist');
+                }
+                const isMatchingPassword = await bcrypt.compare(
+                    args.password,
+                    admin.password
+                );
+                if(!isMatchingPassword) {
+                    throw new Error('Inavlid credentials')
+                }
+                const token = await jwt.sign(
+                    { _id: admin._id},
+                    process.env.JWT_SECRET_KEY,
+                    {
+                        expiresIn: '1d'
+                    }
+                );
+                admin.token = token;
+                await admin.save();
+                return {
+                    admin, 
+                    token, 
+                };
+            } catch (error) {
+                console.log(error);
+                throw new Error(error.message || 'Fail to login admin')
+
+            }
+        },
         createEvent: async (parent, { eventInput}, context ) => {
             if(context.user) {
                 try{
