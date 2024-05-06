@@ -8,4 +8,18 @@ export const GET_USER = gql`
         username
         email
     }
-}`;
+}
+`
+;
+
+export const GET_EVENTS = gql`
+{
+    getEvents {
+        _id
+        title
+        description
+        number_of_people
+        is_virtual
+    }
+}
+`;
