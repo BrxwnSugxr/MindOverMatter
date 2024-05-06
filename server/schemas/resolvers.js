@@ -4,6 +4,7 @@ const Event = require('../models/events');
 const bcrypt = require('bcryptjs');
 const {Query} = require('mongoose');
 const jwt = require('jsonwebtoken')
+const Admin = require('../models/admin')
 const UserEvents = require('../models/userEvents');
 
 
@@ -73,7 +74,21 @@ const resolvers = {
                 throw new Error('Fail to register user');
             }
         },
-        
+        registerAdmin: async (parent, args, context) => {
+            try{
+                const hashedPassword = await bcrypt.hash(args.password, 8);
+                const admin = new Admin({
+                    ...args,
+                    password: hashedPassword,
+                })
+
+                admin.save();
+                return admin;
+            } catch (error) {
+                console.log(error);
+                throw new Error('Fail to register admin')
+            }
+        },
         login: async (parent, args, context) => {
             try{
                 const user = await User.findOne({
