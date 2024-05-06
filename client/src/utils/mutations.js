@@ -58,4 +58,16 @@ mutation loginAdmin($email: String!, $password: String!) {
         token
     }
 }
-`
+`;
+
+export const CREATE_EVENT = gql`
+mutation createEvent($eventInput: EventInput!) {
+    createEvent(eventInput: $eventInput) {
+        _id
+        title
+        description
+        number_of_people
+        is-virtual
+    }
+}
+`;
