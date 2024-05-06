@@ -47,9 +47,13 @@ const resolvers = {
         }, 
         userRegisteredEvents: async (parent, {userId}, context) => {
             try{
-                const events = await UserEvents
-
+                const events = await UserEvents.find({
+                    user: userId,
+                });
+                console.log('events', events);
+                return events;
             } catch (error){
+                throw new Error('Failed to fetch all userregistered Events')
 
             }
         }
@@ -69,6 +73,7 @@ const resolvers = {
                 throw new Error('Fail to register user');
             }
         },
+        
         login: async (parent, args, context) => {
             try{
                 const user = await User.findOne({
