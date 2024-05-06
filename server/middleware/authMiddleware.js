@@ -13,8 +13,16 @@ module.exports = {
         const onlyToken = token.split(' ')[1];
         console.log('onlyToken', onlyToken);
         const result = jwt.verify(onlyToken, process.env.JWT_SECRET_KEY);
-        console.log('result', result);
-        req.user = result;
-        return req;
+        const isMatchingUser = await User.findOne({
+            _id: result._id,
+            token: onlyToken,
+        });
+        if (isMatchingUser) {
+            console.log('result', result);
+            req.user = result;
+            return req;
+        } else {
+            
+        }
     }
 };
