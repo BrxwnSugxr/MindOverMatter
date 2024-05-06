@@ -89,6 +89,29 @@ const resolvers = {
                 throw new Error('Fail to register admin')
             }
         },
+        registerUserForEvent: async (parent, {userId, eventId}, context) => {
+            try{
+                const userEvents = new UserEvents({
+                    user: userId,
+                    event: eventId,
+                })
+                await userEvents.save();
+
+                const matchingEvent = await Event.findOne({
+                    _id: eventId,
+                });
+                if(matchingEvent) {
+                    matchingEvent.number_of_people = parseInt(matchingEvent.number_of_people, 10)+1;
+                    await matchingEvent.save();
+                }
+                return {
+                    success: true,
+                }
+            } catch (error) {
+                console.log(error);
+                throw new Error('Fail to register user for the event')
+            }
+        },
         login: async (parent, args, context) => {
             try{
                 const user = await User.findOne({
