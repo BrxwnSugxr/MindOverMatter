@@ -34,6 +34,15 @@ const resolvers = {
             } catch(error) {
                 throw new Error('Fail to fetch all event');
             }
+        }, 
+        getPublicEvents: async (parent, args, context) => {
+            try{
+                const events = await Event.find();
+                console.log('events', events);
+                return events;
+            } catch (error) {
+                throw new Error('Failed to fetch all events')
+            }
         }
     }, 
 
