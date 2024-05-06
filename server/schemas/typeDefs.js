@@ -16,8 +16,11 @@ const typeDefs = gql`
 
   type Query {
     getUser: User
-    getEvent: Event
-    getEvents: Event
+    getEvent(eventId: String!): Event
+    getPublicEvents: [Event]
+    getEvents: [Event]
+    userRegisteredEvents(userId: String!): [UserEvents]
+
   }
   type Event {
     _id: ID!
