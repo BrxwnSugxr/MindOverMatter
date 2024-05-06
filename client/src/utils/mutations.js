@@ -71,3 +71,15 @@ mutation createEvent($eventInput: EventInput!) {
     }
 }
 `;
+
+export const UPDATE_EVENT = gql`
+mutation updateEvent($eventId: ID!, $input: EventInput!) {
+    updateEvent(eventId, input: $input) {
+        _id
+        title
+        description
+        number_of_people
+        is-virtual
+    }
+}
+`
