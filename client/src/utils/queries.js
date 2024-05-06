@@ -45,9 +45,15 @@ query getEvent($eventId: String!) {
         number_of_people
         is_virtual
     }
-}
+}g
 `
 
 export const GET_USER_REGISTERED_EVENTS = gql`
-
-`
+query userRegisteredEvents($userId: String!) {
+    userRegisteredEvents(userId: $userId){
+        event{
+            _id
+        }
+    }
+}
+`;
