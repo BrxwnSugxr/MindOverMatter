@@ -1,6 +1,6 @@
 require('dotenv').config();
 const User = require('../models/user');
-const Event = require('../models/events');
+const Event = require('../models/event');
 const bcrypt = require('bcryptjs');
 const {Query} = require('mongoose');
 const jwt = require('jsonwebtoken')
