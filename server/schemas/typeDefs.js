@@ -39,9 +39,19 @@ const typeDefs = gql`
     user: User!
     token: String!
   }
+  type AuthAdmin {
+    admin: User!
+    token: String!
+  }
+  type UserEvent {
+    success: Boolean!
+  }
   type Mutation {
     register(username: String!, email: String!, password: String!): User!
+    registerAdmin(username: String!, email: String!, password: String!): User!
+    registerUserForEvent(userId: String!, eventId: String!): AuthUser!
     login(email: String!, password: String!): AuthUser!
+    loginAdmin(email: String!, password: String!): AuthUser!
     createEvent(eventInput: EventInput!): Event
     updateEvent(eventId: ID!, input: EventInput!): Event
     deleteEvent(eventId: ID!): Event
