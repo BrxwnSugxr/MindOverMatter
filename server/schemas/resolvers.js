@@ -1,9 +1,10 @@
 require('dotenv').config();
 const User = require('../models/user');
-const Event = require('../models/event');
+const Event = require('../models/events');
 const bcrypt = require('bcryptjs');
 const {Query} = require('mongoose');
 const jwt = require('jsonwebtoken')
+const UserEvents = require('../models/userEvents');
 
 
 
@@ -42,6 +43,14 @@ const resolvers = {
                 return events;
             } catch (error) {
                 throw new Error('Failed to fetch all events')
+            }
+        }, 
+        userRegisteredEvents: async (parent, {userId}, context) => {
+            try{
+                const events = await UserEvents
+
+            } catch (error){
+
             }
         }
     }, 
