@@ -22,7 +22,16 @@ module.exports = {
             req.user = result;
             return req;
         } else {
-            
+            const isMatchingAdmin = await Admin.findOne({
+                _id: result._id,
+                token: onlyToken,
+            });
+            if(isMatchingAdmin) {
+                req.user = result;
+                return req;
+            } else {
+                throw new Error('Authorizzation failed')
+            }
         }
     }
 };
