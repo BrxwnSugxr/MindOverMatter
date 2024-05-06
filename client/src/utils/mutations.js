@@ -83,3 +83,15 @@ mutation updateEvent($eventId: ID!, $input: EventInput!) {
     }
 }
 `
+
+export const DELETE_EVENT = gql`
+mutation deleteEvent($eventId: ID!) {
+    deleteEvent(eventId: $eventId){
+        _id
+        title
+        description
+        number_of_people
+        is-virtual
+    }
+}
+`
