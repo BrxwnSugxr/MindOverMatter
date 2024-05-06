@@ -8,6 +8,12 @@ const typeDefs = gql`
     type: String!
   }
 
+  typeUserEvents {
+    _id: ID!
+    user: User!
+    event: Event!
+  }
+
   type Query {
     getUser: User
     getEvent: Event
