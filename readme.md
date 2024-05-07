@@ -2,6 +2,7 @@
 
 ![stripe?](https://img.shields.io/badge/15-0?label=stripePayment&style=for-the-badge&labelColor=white&color=black)
 ![cloudinary?](https://img.shields.io/badge/2-0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)
+![resend?](https://img.shields.io/badge/3-0?label=Resend&style=for-the-badge&labelColor=white&color=black)
 
 ## Overview
 
