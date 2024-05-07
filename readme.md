@@ -73,8 +73,8 @@ Deployed on [live shrae?](https://?/).
 
 | Contributors                                   | Original Roles              | Tasks                    |
 | ---------------------------------------------- | --------------------------- | ------------------------ |
-| [Muhamad Sahid](https://github.com/BrxwnSugxr) |  |         |
-| [Mohibul Haque](https://github.com/)    |                    |         |
+| [Mohibul Haque](https://github.com/)  |Full Stack Developer  | Wireframe, Architecture design database, Database, Server Side, Ui/Ux        |
+|  [Muhamad Sahid](https://github.com/BrxwnSugxr)   |  Full Stack Developer                  | Wireframe, Client Side, Ui/Ux , Database        |
 
 
 ## License
