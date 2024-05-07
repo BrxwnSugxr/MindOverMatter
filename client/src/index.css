@@ -34,3 +34,15 @@
 .active {
   font-weight: bold;
 }
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 90vh;
+}
+
+.main-form {
+  max-width: 500px;
+  margin: 1rem auto;
+}

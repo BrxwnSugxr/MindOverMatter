@@ -1,0 +1,15 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.footer ul a {
+  color: #fff;
+}

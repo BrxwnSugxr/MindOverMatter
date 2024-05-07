@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import './Register.css';
+import './ContactUs.css';
 import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { REGISTER_USER } from '../../utils/mutations';
-import { Link, useNavigate } from 'react-router-dom';
+import { SEND_EMAIL } from '../../utils/mutations';
 
-const Register = () => {
+const ContactUs = () => {
   const [state, setState] = useState({
     username: '',
     email: '',
-    password: '',
+    message: '',
   });
-  const navigate = useNavigate();
-
-  const [registerUser, { error }] = useMutation(REGISTER_USER);
   const [successMsg, setSuccessMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [sendEmail, { error }] = useMutation(SEND_EMAIL);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,46 +24,50 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
-    const { username, email, password } = state;
+    setErrorMsg('');
+    setSuccessMsg('');
+    const { username, email, message } = state;
     if (
       username.trim() !== '' &&
       email.trim() !== '' &&
-      password.trim() !== ''
+      message.trim() !== ''
     ) {
-      const { data } = await registerUser({
+      await sendEmail({
         variables: {
-          ...state,
+          username,
+          email,
+          message,
         },
       });
-      console.log('data', data);
+      setSuccessMsg('Email sent successfully.');
       setState({
         username: '',
         email: '',
-        password: '',
+        message: '',
       });
-      setSuccessMsg('Registration is successful');
       setTimeout(() => {
         setSuccessMsg('');
-        navigate('/login');
       }, 2000);
+    } else {
+      setErrorMsg('All the fields are required.');
     }
   };
-
   return (
-    <div className="register main-form">
-      <h2 className="title">Create Your Account</h2>
-      <Form className="register-form" onSubmit={handleSubmit}>
-        {successMsg && <p className="success-msg">{successMsg}</p>}
+    <div className="contact-us">
+      <Form onSubmit={handleSubmit}>
+        {errorMsg && <p className="error-msg">{errorMsg}</p>}
         {error && (
-          <p className="error-msg">Something went wrong. Try again later.</p>
+          <p className="error-msg">
+            Error while sending email. Try again later.
+          </p>
         )}
+        {successMsg && <p className="success-msg">{successMsg}</p>}
         <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             name="username"
-            placeholder="Enter username"
+            placeholder="Enter your name"
             value={state.username}
             onChange={handleChange}
           />
@@ -75,28 +77,28 @@ const Register = () => {
           <Form.Control
             type="email"
             name="email"
-            placeholder="Enter email"
+            placeholder="Enter your email"
             value={state.email}
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-3" controlId="message">
+          <Form.Label>Message</Form.Label>
           <Form.Control
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            value={state.password}
+            as="textarea"
+            name="message"
+            rows={3}
+            placeholder="Type your message"
+            value={state.message}
             onChange={handleChange}
           />
         </Form.Group>
-        <Button type="submit">Register</Button>
+        <Form.Group className="mb-3" controlId="message">
+          <Button type="submit">Send Email</Button>
+        </Form.Group>
       </Form>
-      <div>
-        Already have an account? <Link to="/login">login here</Link>
-      </div>
     </div>
   );
 };
 
-export default Register;
+export default ContactUs;
