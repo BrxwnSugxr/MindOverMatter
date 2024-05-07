@@ -1,7 +1,7 @@
 # Mind Over Matter  <a href="https://urllink/">![x](https://img.shields.io/badge/>-0?label=try%20the%20app&style=for-the-badge&labelColor=white&color=purple)</a>
 
-![stripe?](https://img.shields.io/badge/15-5-5?label=stripePayment&style=for-the-badge&labelColor=white&color=black)
-![cloudinary?](https://img.shields.io/badge/2-2-0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)
+![stripe?](https://img.shields.io/badge/15.5.5?label=stripePayment&style=for-the-badge&labelColor=white&color=black)
+![cloudinary?](https://img.shields.io/badge/2.2.0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)
 
 ## Overview
 
