@@ -1,6 +1,7 @@
 # Mind Over Matter  <a href="https://urllink/">![x](https://img.shields.io/badge/>-0?label=try%20the%20app&style=for-the-badge&labelColor=white&color=purple)</a>
 
-![api?](https://img.shields.io/badge/17-0?label=willweuseanAPI&style=for-the-badge&labelColor=white&color=black)
+![stripe?](https://img.shields.io/badge/15-0?label=stripePayment&style=for-the-badge&labelColor=white&color=black)
+![cloudinary?](https://img.shields.io/badge/2-0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)
 
 ## Overview
 
@@ -72,8 +73,8 @@ Deployed on [live shrae?](https://?/).
 
 | Contributors                                   | Original Roles              | Tasks                    |
 | ---------------------------------------------- | --------------------------- | ------------------------ |
-| [Muhamad Sahid](https://github.com/BrxwnSugxr) |  |         |
-| [Mohibul Haque](https://github.com/)    |                    |         |
+| [Mohibul Haque](https://github.com/)  |Full Stack Developer  | Wireframe, Architecture design database, Database, Server Side, Ui/Ux        |
+|  [Muhamad Sahid](https://github.com/BrxwnSugxr)   |  Full Stack Developer                  | Wireframe, Client Side, Ui/Ux , Database        |
 
 
 ## License
