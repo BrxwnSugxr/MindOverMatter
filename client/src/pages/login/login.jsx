@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, REGISTER_USER } from '../../utils/mutations';
 import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 
-const Login = (setIsLoggedIn) => {
+const Login = ({ setIsLoggedIn }) => {
+  const { updateLoggedInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: '',
@@ -29,21 +31,22 @@ const Login = (setIsLoggedIn) => {
     const { email, password } = state;
     if (email.trim() !== '' && password.trim() !== '') {
       const { data } = await loginUser({
-        data: {
+        variables: {
           ...state,
         },
       });
       console.log('data', data);
-      locaclStorage.setItem('userToken', JSON.stringify(data.login.token));
+      updateLoggedInUser(data?.login);
+      localStorage.setItem('user', JSON.stringify(data.login));
       setIsLoggedIn(true);
       setState({
         email: '',
         password: '',
       });
-      setSuccessMsg('Registration is successful');
+      setSuccessMsg('Login is successful');
       setTimeout(() => {
         setSuccessMsg('');
-        navigate('/dashboard');
+        navigate('/events-list');
       }, 2000);
     }
   };
@@ -54,17 +57,18 @@ const Login = (setIsLoggedIn) => {
       <Form className="login-form" onSubmit={handleSubmit}>
         {successMsg && <p className="success-msg">{successMsg}</p>}
         {error && (
-          <p className="error-msg">Something went wrong.Try again later</p>
+          <p className="error-msg">
+            {error?.message || 'Something went wrong. Try again later.'}
+          </p>
         )}
-
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             name="email"
+            placeholder="Enter email"
             value={state.email}
             onChange={handleChange}
-            placeholder="Enter Email"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
@@ -77,10 +81,10 @@ const Login = (setIsLoggedIn) => {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button type="submit">Register</Button>
+        <Button type="submit">Login</Button>
       </Form>
       <div>
-        Don't have an account <Link to="/register">register here</Link>
+        Don't have an account? <Link to="/register">register here</Link>
       </div>
     </div>
   );

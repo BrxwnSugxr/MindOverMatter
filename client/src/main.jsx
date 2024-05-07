@@ -8,32 +8,36 @@ import {
   InMemoryCache,
   createHttpLink,
 } from '@apollo/client';
-import {} from '@apollo/client/link/context';
+import { setContext } from '@apollo/client/link/context';
 import './index.css';
+import { AuthProvider } from './context/AuthContext';
+import { createUploadLink } from 'apollo-upload-client';
 
-const authLink = setContentext((_, { Headers }) => {
-  const token = JSON.parse(localStorage.getItem('userToken'));
+const authLink = setContext((_, { headers }) => {
+  const token = JSON.parse(localStorage.getItem('user'))?.token;
   return {
     headers: {
       ...headers,
-      authorization: token ? `Because ${token}` : '',
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
 
+const uploadLink = createUploadLink({
+  uri: 'http://localhost:3030/graphql',
+});
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: authLink.concat(
-    createHttpLink({
-      uri: 'http://localhost:4000/graphql',
-    })
-  ),
+  link: authLink.concat(uploadLink),
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
