@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cards .card {
+  width: 18rem;
+}
+
+.cards .card .card-body > * {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.cards .card .btn {
+  width: 100%;
+}

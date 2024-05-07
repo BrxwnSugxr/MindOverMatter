@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import Header from './components/header/Header';
@@ -12,7 +13,9 @@ import { REGISTER_ADMIN } from './utils/mutations';
 import AdminLogin from './pages/admin-login/AdminLogin';
 import AdminRegister from './pages/admin-register/AdminRegister';
 import AuthContext from './context/AuthContext';
-import Login from './pages/login/login';
+import Donate from './pages/donate/Donate';
+import Success from './success/Success';
+import Profile from './pages/profile/Profile';
 
 const App = () => {
   const { loggedInUser } = useContext(AuthContext);
@@ -22,9 +25,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="container">
-        {isLoggedIn && (
-          <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        )}
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route
             path="/"
@@ -69,6 +70,8 @@ const App = () => {
             }
           />
           <Route path="/home" element={<Home />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/success" element={<Success />} />
           <Route
             path="/event/:id"
             element={
@@ -81,6 +84,9 @@ const App = () => {
           />
           <Route element={<ProtectedPage isLoggedIn={isLoggedIn} />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            {loggedInUser?.user?._id && (
+              <Route path="/profile" element={<Profile />} />
+            )}
             <Route path="/events-list" element={<EventsList />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />

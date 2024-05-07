@@ -1,0 +1,27 @@
+.home {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home .main-image {
+  width: 80%;
+  height: 350px;
+  text-align: center;
+  margin: auto;
+}
+
+.home .public-events {
+  margin-top: 2rem;
+}
+
+.home .donate {
+  width: 80%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.home .title {
+  margin: 2rem auto;
+}

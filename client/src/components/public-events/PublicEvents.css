@@ -1,0 +1,25 @@
+.events-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.events-list .link {
+  text-decoration: none;
+}
+
+.events-list .event {
+  width: 350px;
+  border-radius: 10;
+}
+
+.events-list .image {
+  height: 350px;
+}
+
+.events-list .action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}

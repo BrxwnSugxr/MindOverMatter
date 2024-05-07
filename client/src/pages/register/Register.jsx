@@ -3,7 +3,7 @@ import './Register.css';
 import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { REGISTER_USER } from '../../utils/mutations';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [state, setState] = useState({
@@ -11,6 +11,7 @@ const Register = () => {
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const [registerUser, { error }] = useMutation(REGISTER_USER);
   const [successMsg, setSuccessMsg] = useState('');
@@ -26,11 +27,14 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(state);
-    const {username, email, password} = state;
-    if(username.trim() !== '' && email.trim() !== '' && password.trim() !== ''){
-
+    const { username, email, password } = state;
+    if (
+      username.trim() !== '' &&
+      email.trim() !== '' &&
+      password.trim() !== ''
+    ) {
       const { data } = await registerUser({
-        data: {
+        variables: {
           ...state,
         },
       });
@@ -43,37 +47,37 @@ const Register = () => {
       setSuccessMsg('Registration is successful');
       setTimeout(() => {
         setSuccessMsg('');
+        navigate('/login');
       }, 2000);
     }
   };
 
   return (
     <div className="register">
-      <h2 className="title">Register Page</h2>
+      <h2 className="title">Create Your Account</h2>
       <Form className="register-form" onSubmit={handleSubmit}>
         {successMsg && <p className="success-msg">{successMsg}</p>}
         {error && (
-          <p className="error-msg">Something went wrong.Try again later</p>
+          <p className="error-msg">Something went wrong. Try again later.</p>
         )}
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             name="username"
-            placeholder="Enter Username"
+            placeholder="Enter username"
             value={state.username}
             onChange={handleChange}
           />
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             name="email"
+            placeholder="Enter email"
             value={state.email}
             onChange={handleChange}
-            placeholder="Enter Email"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
@@ -89,7 +93,7 @@ const Register = () => {
         <Button type="submit">Register</Button>
       </Form>
       <div>
-        have an account <Link to="/login">login in</Link>
+        Already have an account? <Link to="/login">login here</Link>
       </div>
     </div>
   );
