@@ -19,6 +19,7 @@
     "graphql-upload": "^13.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.2",
+    "resend": "^3.2.0",
     "stripe": "^15.5.0"
   },
   "devDependencies": {
