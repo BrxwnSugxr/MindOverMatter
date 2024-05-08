@@ -1,9 +1,9 @@
+import { useMutation } from '@apollo/client';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import './Donate.css';
-import { useMutation } from '@apollo/client';
 import { DONATE_AMOUNT } from '../../utils/mutations';
-import { loadStripe } from '@stripe/stripe-js';
+import './Donate.css';
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 

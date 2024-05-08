@@ -1,15 +1,15 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useContext, useState } from 'react';
-import { GET_EVENTS, GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
 import { Button, Card } from 'react-bootstrap';
-import './EventsList.css';
 import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 import {
   DELETE_EVENT,
   REGISTER_USER_FOR_EVENT,
   UN_REGISTER_USER_FROM_EVENT,
 } from '../../utils/mutations';
-import AuthContext from '../../context/AuthContext';
+import { GET_EVENTS, GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
+import './EventsList.css';
 
 const EventsList = () => {
   const { loggedInUser } = useContext(AuthContext);

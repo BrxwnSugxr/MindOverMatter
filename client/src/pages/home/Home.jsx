@@ -1,9 +1,9 @@
 import React from 'react';
-import './Home.css';
-import MainImage from '../../assets/main_image.jpg';
-import PublicEvents from '../../components/public-events/PublicEvents';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import MainImage from '../../assets/main_image.jpg';
+import PublicEvents from '../../components/public-events/PublicEvents';
+import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();

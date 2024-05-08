@@ -1,13 +1,11 @@
-import { useMutation, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { CREATE_EVENT } from '../../utils/mutations';
-import { validateImage } from '../../utils/function';
-import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+import DateTimePicker from 'react-datetime-picker';
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import { useNavigate } from 'react-router-dom';
+import { validateImage } from '../../utils/function';
 
 const EventForm = ({ event, handleSubmit }) => {
   const navigate = useNavigate();

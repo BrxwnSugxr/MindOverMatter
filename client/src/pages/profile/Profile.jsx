@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
-import AuthContext from '../../context/AuthContext';
-import './Profile.css';
 import { useQuery } from '@apollo/client';
+import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
+import AuthContext from '../../context/AuthContext';
+import { GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
+import './Profile.css';
 
 const Profile = () => {
   const { loggedInUser } = useContext(AuthContext);

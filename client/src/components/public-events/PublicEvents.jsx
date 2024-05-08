@@ -1,11 +1,9 @@
-import { useMutation, useQuery } from '@apollo/client';
-import React, { useContext } from 'react';
-import { GET_EVENTS, GET_PUBLIC_EVENTS } from '../../utils/queries';
-import { Button, Card } from 'react-bootstrap';
-import './PublicEvents.css';
+import { useQuery } from '@apollo/client';
+import React from 'react';
+import { Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { DELETE_EVENT } from '../../utils/mutations';
-import AuthContext from '../../context/AuthContext';
+import { GET_PUBLIC_EVENTS } from '../../utils/queries';
+import './PublicEvents.css';
 
 const PublicEvents = () => {
   const navigate = useNavigate();

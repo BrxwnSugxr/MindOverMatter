@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './ContactUs.css';
-import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { SEND_EMAIL } from '../../utils/mutations';
+import './ContactUs.css';
 
 const ContactUs = () => {
   const [state, setState] = useState({

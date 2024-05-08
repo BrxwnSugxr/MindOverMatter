@@ -1,8 +1,8 @@
+import { useQuery } from '@apollo/client';
 import React from 'react';
+import { ListGroup } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { GET_EVENT } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
-import { Button, ListGroup } from 'react-bootstrap';
 
 const EventInfo = () => {
   const { id } = useParams();
