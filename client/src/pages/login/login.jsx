@@ -52,7 +52,7 @@ const Login = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <div className="login">
+    <div className="login main-form">
       <h2 className="title">Login Page</h2>
       <Form className="login-form" onSubmit={handleSubmit}>
         {successMsg && <p className="success-msg">{successMsg}</p>}

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Login from './pages/login/login';
+import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import Header from './components/header/Header';
