@@ -1,4 +1,4 @@
-# Mind Over Matter  <a href="https://urllink/">![x](https://img.shields.io/badge/>-0?label=try%20the%20app&style=for-the-badge&labelColor=white&color=purple)</a>
+# Mind Over Matter  <a href="https://https://mindovermatter-r46w.onrender.com/home/">![x](https://img.shields.io/badge/>-0?label=try%20the%20app&style=for-the-badge&labelColor=white&color=purple)</a>
 
 ![stripe?](https://img.shields.io/badge/15-0?label=stripePayment&style=for-the-badge&labelColor=white&color=black)
 ![cloudinary?](https://img.shields.io/badge/2-0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)
@@ -63,8 +63,8 @@ This project is licensed under the MIT License - see the (./LICENSE) file for de
 
 ## Usage
 
-Deployed on [Heroku](https://?/).
-Deployed on [live shrae?](https://?/).
+Deployed on [Heroku](https://https://mindovermatter-r46w.onrender.com/home/).
+Deployed on [live shrae?](https://https://mindovermatter-r46w.onrender.com/home/).
 
 ## Documentation
 
