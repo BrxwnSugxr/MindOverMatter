@@ -2,7 +2,7 @@ require('./db');
 const express = require('express');
 const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
-const typeDefs = require('./schemas/typedefs');
+const typeDefs = require('./schemas/typeDefs');
 const { graphqlUploadExpress } = require('graphql-upload');
 const resolvers = require('./schemas/resolvers');
 const { authMiddleware } = require('./middleware/authMiddleware');
