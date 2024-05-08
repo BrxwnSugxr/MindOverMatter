@@ -19,7 +19,6 @@ const Donate = () => {
             amount: '' + amount,
           },
         });
-        console.log('response donate', data);
         await stripe.redirectToCheckout({
           sessionId: data?.donateAmount?.id,
         });

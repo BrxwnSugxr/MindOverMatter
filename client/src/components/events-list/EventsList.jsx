@@ -24,7 +24,6 @@ const EventsList = () => {
       },
     }
   );
-  console.log('userEvents', userEvents?.userRegisteredEvents);
   const [deleteEvent, { error: deleteError }] = useMutation(DELETE_EVENT);
   const [registerForEvent, { error: eventError }] = useMutation(
     REGISTER_USER_FOR_EVENT
@@ -32,7 +31,6 @@ const EventsList = () => {
   const [unRegisterFromEvent, { error: unRegisterError }] = useMutation(
     UN_REGISTER_USER_FROM_EVENT
   );
-  console.log('EventsList', data?.getEvents);
 
   const handleDelete = async (id) => {
     const shouldDelete = window.confirm(
@@ -114,7 +112,6 @@ const EventsList = () => {
   if (data?.getEvents?.length === 0) {
     return <p className="error-msg">No events found. Please add some.</p>;
   }
-  console.log('eventError', eventError);
 
   return (
     <>

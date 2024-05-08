@@ -10,7 +10,6 @@ import AuthContext from '../../context/AuthContext';
 const PublicEvents = () => {
   const navigate = useNavigate();
   const { data, error } = useQuery(GET_PUBLIC_EVENTS);
-  console.log('PublicEvents', data?.getPublicEvents);
 
   if (!data && !error) {
     return <p className="loading">Loading...</p>;

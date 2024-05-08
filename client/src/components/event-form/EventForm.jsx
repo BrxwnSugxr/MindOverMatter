@@ -25,14 +25,11 @@ const EventForm = ({ event, handleSubmit }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target || {};
-    console.log('typoe', event instanceof Date);
     setErrorMsg('');
     debugger;
     if (name === 'file') {
       const file = event.target.files[0];
-      console.log('uploaded file', file);
       const imageErrorMsg = validateImage(file);
-      console.log('imageErrorMsg', imageErrorMsg);
       if (imageErrorMsg) {
         setErrorMsg(imageErrorMsg);
       }
@@ -41,7 +38,6 @@ const EventForm = ({ event, handleSubmit }) => {
         file,
       });
     } else if (event instanceof Date) {
-      console.log('value', event);
       setState({
         ...state,
         event_date: event,
@@ -53,11 +49,9 @@ const EventForm = ({ event, handleSubmit }) => {
       });
     }
   };
-  console.log('state', new Date(state.event_date));
 
   const handleFormSubmit = async (submitEvent) => {
     submitEvent.preventDefault();
-    console.log(state);
     const { title, description, number_of_people, event_date } = state;
     setErrorMsg('');
     if (

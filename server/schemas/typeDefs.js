@@ -74,6 +74,7 @@ const typeDefs = gql`
     deleteEvent(eventId: ID!): Event
     singleUpload(file: Upload!, eventId: String!): File!
     donateAmount(amount: String!): DonateResponse!
+    sendEmail(username: String!, email: String!, message: String!): UserEvent!
   }
 `;
 

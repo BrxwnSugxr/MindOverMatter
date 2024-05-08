@@ -26,7 +26,6 @@ const AdminRegister = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
     const { username, email, password } = state;
     if (
       username.trim() !== '' &&
@@ -38,7 +37,6 @@ const AdminRegister = () => {
           ...state,
         },
       });
-      console.log('data', data);
       setState({
         username: '',
         email: '',

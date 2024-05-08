@@ -27,7 +27,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
     const { email, password } = state;
     if (email.trim() !== '' && password.trim() !== '') {
       const { data } = await loginAdmin({
@@ -35,7 +34,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
           ...state,
         },
       });
-      console.log('data', data);
       updateLoggedInUser(data?.loginAdmin);
       localStorage.removeItem('user');
       localStorage.setItem('user', JSON.stringify(data.loginAdmin));
@@ -51,7 +49,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
       }, 2000);
     }
   };
-  console.log('error', error?.message);
 
   return (
     <div className="login">
