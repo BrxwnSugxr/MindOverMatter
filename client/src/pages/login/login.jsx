@@ -35,7 +35,6 @@ const Login = ({ setIsLoggedIn }) => {
           ...state,
         },
       });
-      console.log('data', data);
       updateLoggedInUser(data?.login);
       localStorage.setItem('user', JSON.stringify(data.login));
       setIsLoggedIn(true);

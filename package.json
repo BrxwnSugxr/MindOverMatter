@@ -1,0 +1,13 @@
+{
+  "name": "mindovermatter",
+  "version": "1.0.0",
+  "description": "![stripe?](https://img.shields.io/badge/15-0?label=stripePayment&style=for-the-badge&labelColor=white&color=black)\r ![cloudinary?](https://img.shields.io/badge/2-0?label=Cloudinary&style=for-the-badge&labelColor=white&color=black)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm run start",
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
