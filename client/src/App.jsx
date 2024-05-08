@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import Header from './components/header/Header';
@@ -9,7 +8,6 @@ import EventsList from './components/events-list/EventsList';
 import UpdateEvent from './components/update-event/UpdateEvent';
 import Home from './pages/home/Home';
 import EventInfo from './components/event-info/EventInfo';
-import { REGISTER_ADMIN } from './utils/mutations';
 import AdminLogin from './pages/admin-login/AdminLogin';
 import AdminRegister from './pages/admin-register/AdminRegister';
 import AuthContext from './context/AuthContext';
@@ -18,6 +16,7 @@ import Success from './success/Success';
 import Profile from './pages/profile/Profile';
 import ContactUs from './pages/contact-us/ContactUs';
 import Footer from './components/footer/Footer';
+import Login from './pages/login/Login';
 
 const App = () => {
   const { loggedInUser } = useContext(AuthContext);
