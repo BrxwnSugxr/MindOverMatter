@@ -6,7 +6,7 @@
 
 ## Overview
 
-This project is a MERN stack website aimed at providing information about the latest mental health seminars and workshops. It serves as a platform for users to discover and attend events related to mental health awareness and well-being.
+This project is a MERN stack website aimed at providing information about the latest mental health seminars and workshops. It serves as a platform for users to discover and attend events related to mental health awareness and well-being. (Please see branch version 1, uptodate)
 
 ## Feature
 Event Listings: Browse a curated list of upcoming mental health seminars and workshops.
@@ -16,11 +16,12 @@ User Authentication: Secure authentication system for user registration and logi
 Admin Dashboard: Admin panel for managing events, users, and content.
 
 ## Technologies Used
-Frontend: React.js, Redux, HTML, CSS
-Backend: Node.js, Express.js, MongoDB
-Authentication: JSON Web Tokens (JWT)
+Frontend: React.js, Redux, HTML, CSS, Bootstrap, 
+Backend: Node.js, Express.js, MongoDB, GraphQL, Apollo, 
+Authentication: JSON Web Tokens (JWT), bcryptjs
 Database: MongoDB Atlas
-Deployment: Heroku (backend)
+API: resend, cloudinary, 
+Deployment: Render (backend)
 
 ## Installation
  1. Clone the repository:
@@ -63,8 +64,7 @@ This project is licensed under the MIT License - see the (./LICENSE) file for de
 
 ## Usage
 
-Deployed on [Heroku](https://https://mindovermatter-r46w.onrender.com/home/).
-Deployed on [live shrae?](https://https://mindovermatter-r46w.onrender.com/home/).
+Deployed on [render](https://mindovermatter-r46w.onrender.com/home/).
 
 ## Documentation
 
@@ -75,7 +75,7 @@ Deployed on [live shrae?](https://https://mindovermatter-r46w.onrender.com/home/
 | Contributors                                   | Original Roles              | Tasks                    |
 | ---------------------------------------------- | --------------------------- | ------------------------ |
 | [Mohibul Haque](https://github.com/)  |Full Stack Developer  | Wireframe, Architecture design database, Database, Server Side, Ui/Ux        |
-|  [Muhamad Sahid](https://github.com/BrxwnSugxr)   |  Full Stack Developer                  | Wireframe, Client Side, Ui/Ux , Database        |
+|  [Muhamad Sahid](https://github.com/BrxwnSugxr)   |  Full Stack Developer                  | Wireframe, Architecture design database, Git Repo, Client Side, Ui/Ux , Database, Presentation        |
 
 
 ## License
