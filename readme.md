@@ -67,8 +67,23 @@ Mind Over Matter is a MERN stack website designed to provide information about t
 
 - Browse upcoming events on the homepage.
 - Click on an event to view its details and register.
-- Log in to access additional features (admin dashboard for admins).
+- Personalisation of your events you register.
+- Register and de register events
+- Log in to access additional features (admin dashboard for admins[CRUD]).
 - Admins can manage events, users, and content through the admin panel.
+
+## Screenshots
+
+![Home Page](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/841d9674-a1d3-42af-8bcb-15ce3948958d))
+![Donations](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/ed6b90ff-3ae5-47f6-805b-038ff0fa3b76))
+![Login/Register - client](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/ef837f17-1e47-4efa-b79c-7906408a2978))
+![Login/Register- admin ](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/441fffc9-266b-449c-853a-244db90c3138))
+![Admin Homepage ](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/be08bb4e-cf0c-4914-a2b6-1175128c57c5))
+![Admin Add event ](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/d33d2310-2f0c-4fc8-b4ad-3fa8a87c96cb))
+![Register event](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/83740b5a-8b17-46d5-8503-635666db80c4))
+![Profile](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/62e687f5-8b4c-40e3-ac6a-a96610c724a4))
+![Contact us](![image](https://github.com/BrxwnSugxr/MindOverMatter/assets/136147687/b8a73879-8072-4a44-9db9-0fcca86cfee4))
+
 
 ## Contributing
 
