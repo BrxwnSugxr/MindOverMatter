@@ -1,23 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Login from './pages/login/login';
-import Register from './pages/register/Register';
-import Dashboard from './pages/dashboard/Dashboard';
+import EventInfo from './components/event-info/EventInfo';
+import EventsList from './components/events-list/EventsList';
+import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import ProtectedPage from './components/protected-page/ProtectedPage';
-import EventsList from './components/events-list/EventsList';
 import UpdateEvent from './components/update-event/UpdateEvent';
-import Home from './pages/home/Home';
-import EventInfo from './components/event-info/EventInfo';
-import { REGISTER_ADMIN } from './utils/mutations';
+import AuthContext from './context/AuthContext';
 import AdminLogin from './pages/admin-login/AdminLogin';
 import AdminRegister from './pages/admin-register/AdminRegister';
-import AuthContext from './context/AuthContext';
-import Donate from './pages/donate/Donate';
-import Success from './success/Success';
-import Profile from './pages/profile/Profile';
 import ContactUs from './pages/contact-us/ContactUs';
-import Footer from './components/footer/Footer';
+import Dashboard from './pages/dashboard/Dashboard';
+import Donate from './pages/donate/Donate';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Profile from './pages/profile/Profile';
+import Register from './pages/register/Register';
+import Success from './success/Success';
 
 const App = () => {
   const { loggedInUser } = useContext(AuthContext);

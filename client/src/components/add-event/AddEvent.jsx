@@ -1,8 +1,8 @@
-import React from 'react';
-import EventForm from '../event-form/EventForm';
 import { useMutation } from '@apollo/client';
+import React from 'react';
 import { CREATE_EVENT, UPLOAD_IMAGE } from '../../utils/mutations';
-import { GET_EVENT, GET_EVENTS } from '../../utils/queries';
+import { GET_EVENTS } from '../../utils/queries';
+import EventForm from '../event-form/EventForm';
 
 const AddEvent = () => {
   const [createEvent, { error }] = useMutation(CREATE_EVENT);

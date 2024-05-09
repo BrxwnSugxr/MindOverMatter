@@ -1,13 +1,11 @@
-import { useMutation, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { CREATE_EVENT } from '../../utils/mutations';
-import { validateImage } from '../../utils/function';
-import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+import DateTimePicker from 'react-datetime-picker';
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import { useNavigate } from 'react-router-dom';
+import { validateImage } from '../../utils/function';
 
 const EventForm = ({ event, handleSubmit }) => {
   const navigate = useNavigate();
@@ -25,14 +23,11 @@ const EventForm = ({ event, handleSubmit }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target || {};
-    console.log('typoe', event instanceof Date);
     setErrorMsg('');
     debugger;
     if (name === 'file') {
       const file = event.target.files[0];
-      console.log('uploaded file', file);
       const imageErrorMsg = validateImage(file);
-      console.log('imageErrorMsg', imageErrorMsg);
       if (imageErrorMsg) {
         setErrorMsg(imageErrorMsg);
       }
@@ -41,7 +36,6 @@ const EventForm = ({ event, handleSubmit }) => {
         file,
       });
     } else if (event instanceof Date) {
-      console.log('value', event);
       setState({
         ...state,
         event_date: event,
@@ -53,11 +47,9 @@ const EventForm = ({ event, handleSubmit }) => {
       });
     }
   };
-  console.log('state', new Date(state.event_date));
 
   const handleFormSubmit = async (submitEvent) => {
     submitEvent.preventDefault();
-    console.log(state);
     const { title, description, number_of_people, event_date } = state;
     setErrorMsg('');
     if (

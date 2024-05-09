@@ -1,15 +1,15 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useContext, useState } from 'react';
-import { GET_EVENTS, GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
 import { Button, Card } from 'react-bootstrap';
-import './EventsList.css';
 import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 import {
   DELETE_EVENT,
   REGISTER_USER_FOR_EVENT,
   UN_REGISTER_USER_FROM_EVENT,
 } from '../../utils/mutations';
-import AuthContext from '../../context/AuthContext';
+import { GET_EVENTS, GET_USER_REGISTERED_EVENTS } from '../../utils/queries';
+import './EventsList.css';
 
 const EventsList = () => {
   const { loggedInUser } = useContext(AuthContext);
@@ -24,7 +24,6 @@ const EventsList = () => {
       },
     }
   );
-  console.log('userEvents', userEvents?.userRegisteredEvents);
   const [deleteEvent, { error: deleteError }] = useMutation(DELETE_EVENT);
   const [registerForEvent, { error: eventError }] = useMutation(
     REGISTER_USER_FOR_EVENT
@@ -32,7 +31,6 @@ const EventsList = () => {
   const [unRegisterFromEvent, { error: unRegisterError }] = useMutation(
     UN_REGISTER_USER_FROM_EVENT
   );
-  console.log('EventsList', data?.getEvents);
 
   const handleDelete = async (id) => {
     const shouldDelete = window.confirm(
@@ -114,7 +112,6 @@ const EventsList = () => {
   if (data?.getEvents?.length === 0) {
     return <p className="error-msg">No events found. Please add some.</p>;
   }
-  console.log('eventError', eventError);
 
   return (
     <>

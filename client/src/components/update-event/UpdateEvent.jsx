@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import EventForm from '../event-form/EventForm';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_EVENT, GET_EVENTS } from '../../utils/queries';
+import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UPDATE_EVENT } from '../../utils/mutations';
-import AuthContext from '../../context/AuthContext';
+import { GET_EVENT, GET_EVENTS } from '../../utils/queries';
+import EventForm from '../event-form/EventForm';
 
 const UpdateEvent = () => {
   const navigate = useNavigate();

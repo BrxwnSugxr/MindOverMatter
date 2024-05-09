@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import './AdminLogin.css';
-import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { LOGIN_ADMIN } from '../../utils/mutations';
+import React, { useContext, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
+import { LOGIN_ADMIN } from '../../utils/mutations';
+import './AdminLogin.css';
 
 const AdminLogin = ({ setIsLoggedIn }) => {
   const { updateLoggedInUser } = useContext(AuthContext);
@@ -27,7 +27,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
     const { email, password } = state;
     if (email.trim() !== '' && password.trim() !== '') {
       const { data } = await loginAdmin({
@@ -35,7 +34,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
           ...state,
         },
       });
-      console.log('data', data);
       updateLoggedInUser(data?.loginAdmin);
       localStorage.removeItem('user');
       localStorage.setItem('user', JSON.stringify(data.loginAdmin));
@@ -51,7 +49,6 @@ const AdminLogin = ({ setIsLoggedIn }) => {
       }, 2000);
     }
   };
-  console.log('error', error?.message);
 
   return (
     <div className="login">

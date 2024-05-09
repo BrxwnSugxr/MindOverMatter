@@ -9,6 +9,7 @@ const Admin = require('../models/admin');
 const UserEvents = require('../models/UserEvents');
 const cloudinary = require('../config');
 const User = require('../models/user');
+const { Resend } = require('resend');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const sleep = () => new Promise((resolve) => setTimeout(resolve, 2000));
@@ -28,7 +29,6 @@ const resolvers = {
         const events = await Event.find().sort({
           updatedAt: -1,
         });
-        console.log('events', events);
         return events;
       } catch (error) {
         throw new Error('Failed to fetch all events');
@@ -37,7 +37,6 @@ const resolvers = {
     getPublicEvents: async (parent, args, context) => {
       try {
         const events = await Event.find();
-        console.log('events', events);
         return events;
       } catch (error) {
         throw new Error('Failed to fetch all events');
@@ -48,7 +47,6 @@ const resolvers = {
         const events = await UserEvents.find({
           user: userId,
         }).populate('event');
-        console.log('events', events);
         return events;
       } catch (error) {
         throw new Error('Failed to fetch all events');
@@ -85,10 +83,38 @@ const resolvers = {
         throw new Error('Error during donating amount');
       }
     },
+    sendEmail: async (parent, { username, email, message }, context) => {
+      try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+
+        const { data, error } = await resend.emails.send({
+          from: 'onboarding@resend.dev', // email
+          to: 'jsdev.mas@gmail.com',
+          subject: 'Contact Us: Enquiry',
+          html: `
+            <p>
+              <p>
+                Hi,
+                I'm ${username},
+              </p>
+              <p>
+              ${message}
+              </p>
+            </p>
+          `,
+        });
+
+        return {
+          success: true,
+        };
+      } catch (error) {
+        console.log(error);
+        throw new Error('Failed to fetch all events');
+      }
+    },
     singleUpload: async (parent, { file, eventId }, context) => {
       if (context.user) {
         try {
-          console.log('file', file.file);
           const { createReadStream, mimetype, filename, encoding } =
             await file.file;
           const stream = createReadStream();
@@ -100,10 +126,8 @@ const resolvers = {
             folder: 'images/profiles',
             resource_type: 'image',
           });
-          console.log('response', response);
 
           const event = await Event.findById(eventId);
-          console.log('found event', event, eventId);
           if (event) {
             event.image = response.secure_url;
             await event.save();

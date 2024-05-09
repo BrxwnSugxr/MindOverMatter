@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './AdminRegister.css';
-import { Button, Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { REGISTER_ADMIN, REGISTER_USER } from '../../utils/mutations';
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { REGISTER_ADMIN } from '../../utils/mutations';
+import './AdminRegister.css';
 
 const AdminRegister = () => {
   const [state, setState] = useState({
@@ -26,7 +26,6 @@ const AdminRegister = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
     const { username, email, password } = state;
     if (
       username.trim() !== '' &&
@@ -38,7 +37,6 @@ const AdminRegister = () => {
           ...state,
         },
       });
-      console.log('data', data);
       setState({
         username: '',
         email: '',

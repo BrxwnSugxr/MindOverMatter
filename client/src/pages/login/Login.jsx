@@ -1,19 +1,20 @@
 import { useMutation } from '@apollo/client';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { REGISTER_USER } from '../../utils/mutations';
-import './Register.css';
+import AuthContext from '../../context/AuthContext';
+import { LOGIN_USER } from '../../utils/mutations';
+import './Login.css';
 
-const Register = () => {
+const Login = ({ setIsLoggedIn }) => {
+  const { updateLoggedInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [state, setState] = useState({
-    username: '',
     email: '',
     password: '',
   });
-  const navigate = useNavigate();
 
-  const [registerUser, { error }] = useMutation(REGISTER_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
   const [successMsg, setSuccessMsg] = useState('');
 
   const handleChange = (event) => {
@@ -26,48 +27,39 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { username, email, password } = state;
-    if (
-      username.trim() !== '' &&
-      email.trim() !== '' &&
-      password.trim() !== ''
-    ) {
-      const { data } = await registerUser({
+    console.log(state);
+    const { email, password } = state;
+    if (email.trim() !== '' && password.trim() !== '') {
+      const { data } = await loginUser({
         variables: {
           ...state,
         },
       });
+      updateLoggedInUser(data?.login);
+      localStorage.setItem('user', JSON.stringify(data.login));
+      setIsLoggedIn(true);
       setState({
-        username: '',
         email: '',
         password: '',
       });
-      setSuccessMsg('Registration is successful');
+      setSuccessMsg('Login is successful');
       setTimeout(() => {
         setSuccessMsg('');
-        navigate('/login');
+        navigate('/events-list');
       }, 2000);
     }
   };
 
   return (
-    <div className="register main-form">
-      <h2 className="title">Create Your Account</h2>
-      <Form className="register-form" onSubmit={handleSubmit}>
+    <div className="login main-form">
+      <h2 className="title">Login Page</h2>
+      <Form className="login-form" onSubmit={handleSubmit}>
         {successMsg && <p className="success-msg">{successMsg}</p>}
         {error && (
-          <p className="error-msg">Something went wrong. Try again later.</p>
+          <p className="error-msg">
+            {error?.message || 'Something went wrong. Try again later.'}
+          </p>
         )}
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            name="username"
-            placeholder="Enter username"
-            value={state.username}
-            onChange={handleChange}
-          />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -88,13 +80,13 @@ const Register = () => {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button type="submit">Register</Button>
+        <Button type="submit">Login</Button>
       </Form>
       <div>
-        Already have an account? <Link to="/login">login here</Link>
+        Don't have an account? <Link to="/register">register here</Link>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;

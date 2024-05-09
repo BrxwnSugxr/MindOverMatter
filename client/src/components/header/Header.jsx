@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import './Header.css';
 import AuthContext from '../../context/AuthContext';
+import './Header.css';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const { loggedInUser } = useContext(AuthContext);
