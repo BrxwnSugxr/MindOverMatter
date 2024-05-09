@@ -84,9 +84,6 @@ Mind Over Matter is a MERN stack website designed to provide information about t
 - Log in to access additional features (admin dashboard for admins[CRUD]).
 - Admins can manage events, users, and content through the admin panel.
 
-## Contributing
-
-Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines on contributing to this project.
 
 ## License
 
